@@ -24,8 +24,8 @@ public class Drawing {
     private String drawingUrl;
 
     @OneToMany
-    @JoinColumn(name = "DRAWING_ID", nullable = false)
-    private List<Defect> defectEntities;
+    @JoinColumn(name = "DRAWING_ID")
+    private List<Defect> defects;
 
     public Drawing(String drawingUrl) {
         this.drawingUrl = drawingUrl;
@@ -43,7 +43,7 @@ public class Drawing {
         return drawingUrl;
     }
 
-    public List<Defect> getDefectEntities() {
-        return defectEntities;
+    public List<Defect> getDefects() {
+        return defects;
     }
 }

@@ -20,7 +20,7 @@ public class Project {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "PROJECT_ID", nullable = false)
+    @JoinColumn(name = "PROJECT_ID")
     private List<Drawing> drawings;
 
     public Integer getId() {
