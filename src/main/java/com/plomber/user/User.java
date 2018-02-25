@@ -18,18 +18,23 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User  extends EntityMetadata implements UserDetails {
+class User extends EntityMetadata implements UserDetails {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "ID")
+    protected Integer id;
 
     @Column(name = "NAME")
-    protected String email;
+    private String email;
 
     @Column(name = "PASSWORD")
-    protected String password;
+    private String password;
 
     UserDto dto() {
        return UserDto.builder()
+               .id(this.id)
                .email(this.email)
-               .id(super.id)
                .build();
     }
 

@@ -7,6 +7,7 @@ import org.springframework.data.repository.Repository;
 interface UserRepository extends Repository<User, Integer> {
     User save(User user);
     User findOne(Integer id);
+    User findByEmail(String email);
     void delete(Integer id);
     Page<User> findAll(Pageable pageable);
     boolean existsByEmail(String email);

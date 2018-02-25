@@ -13,13 +13,16 @@ public class UserFacade {
         this.userFactory = userFactory;
     }
 
-    public UserDto add(UserDto userDto) {
+    public UserDto save(UserDto userDto) {
         if(emailExists(userDto.getEmail())) {
             throw new EmailExistsException(String.format("Email %s already taken", userDto.getEmail()));
         }
         User user = userFactory.create(userDto);
-        User savedUser = userRepository.save(user);
-        return savedUser.dto();
+        return userRepository.save(user).dto();
+    }
+
+    public UserDto get(Integer id) {
+        return userRepository.findOne(id).dto();
     }
 
     private boolean emailExists(String email) {

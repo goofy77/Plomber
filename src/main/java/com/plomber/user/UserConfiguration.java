@@ -8,7 +8,12 @@ class UserConfiguration {
 
     @Bean
     UserFacade userFacade(UserRepository userRepository) {
-        UserFactory factory = new UserFactory();
+        UserFactory factory = new UserFactory(userRepository);
         return new UserFacade(userRepository, factory);
+    }
+
+    @Bean
+    UserFactory userFactory(UserRepository userRepository) {
+        return new UserFactory(userRepository);
     }
 }

@@ -1,12 +1,9 @@
 package com.plomber.user;
 
-import com.plomber.user.UserFacade;
 import com.plomber.user.dto.RegisterUserCommand;
+import com.plomber.user.dto.UpdateUserCommand;
 import com.plomber.user.dto.UserDto;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -19,10 +16,17 @@ class RegistrationController {
     }
 
     @PostMapping
-    public UserDto registerUser(@RequestBody RegisterUserCommand command) {
-        return userFacade.add(UserDto.builder()
+    UserDto registerUser(@RequestBody RegisterUserCommand command) {
+        return userFacade.save(UserDto.builder()
                 .email(command.getEmail())
                 .password(command.getPassword())
                 .build());
     }
+
+    @PutMapping
+    UserDto updateUser(@RequestBody UpdateUserCommand command) {
+        UserDto userToUpdate = command.prepareData(userFacade.get(1));
+        return userFacade.save(userToUpdate);
+    }
+
 }
