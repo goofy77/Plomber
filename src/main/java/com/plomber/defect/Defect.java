@@ -14,6 +14,9 @@ public class Defect {
     @Column(name = "ID")
     private Integer id;
 
+    @Column(name = "DRAWING_ID")
+    private Integer drawingId;
+
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
@@ -22,20 +25,4 @@ public class Defect {
 
     @Column(name = "POSITION_Y", nullable = false)
     private Float positionY;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Float getPositionX() {
-        return positionX;
-    }
-
-    public Float getPositionY() {
-        return positionY;
-    }
 }

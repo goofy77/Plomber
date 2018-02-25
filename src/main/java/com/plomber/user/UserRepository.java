@@ -9,4 +9,5 @@ interface UserRepository extends Repository<User, Integer> {
     User findOne(Integer id);
     void delete(Integer id);
     Page<User> findAll(Pageable pageable);
+    boolean existsByEmail(String email);
 }

@@ -3,6 +3,8 @@ package com.plomber.infrastructure;
 import lombok.Getter;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
@@ -10,9 +12,15 @@ import java.time.LocalDateTime;
 @Getter
 public class EntityMetadata {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "ID")
+    protected Integer id;
+
     @Column(name = "CREATED_AT")
-    private LocalDateTime createdAt;
+    protected LocalDateTime createdAt;
 
     @Column(name = "UPDATED_AT")
-    private LocalDateTime updatedAt;
+    protected LocalDateTime updatedAt;
+
 }

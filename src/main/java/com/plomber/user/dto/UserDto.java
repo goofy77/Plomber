@@ -1,12 +1,10 @@
 package com.plomber.user.dto;
 
-import com.plomber.project.Project;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Getter
 @NoArgsConstructor
@@ -16,6 +14,5 @@ public class UserDto {
 
     private Integer id;
     private String email;
-    private Set<Project> projects;
-
+    private @JsonIgnore String password;
 }

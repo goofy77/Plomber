@@ -17,6 +17,9 @@ public class Drawing {
     @Column(name = "ID")
     private Integer id;
 
+    @Column(name = "PROJECT_ID")
+    private Integer projectId;
+
     @Column(name = "NAME", nullable = false)
     private String name;
 

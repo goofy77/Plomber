@@ -1,10 +1,8 @@
 package com.plomber.project;
 
-import com.plomber.drawing.Drawing;
 import jdk.nashorn.internal.ir.annotations.Immutable;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Immutable
@@ -16,12 +14,8 @@ public class Project {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "NAME")
     private String name;
-
-    @OneToMany
-    @JoinColumn(name = "PROJECT_ID")
-    private List<Drawing> drawings;
 
     public Integer getId() {
         return id;
@@ -29,9 +23,5 @@ public class Project {
 
     public String getName() {
         return name;
-    }
-
-    public List<Drawing> getDrawings() {
-        return drawings;
     }
 }

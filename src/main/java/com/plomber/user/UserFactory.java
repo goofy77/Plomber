@@ -8,6 +8,7 @@ class UserFactory {
         return User
                 .builder()
                 .email(userDto.getEmail())
+                .password(userDto.getPassword())
                 .build();
     }
 }
