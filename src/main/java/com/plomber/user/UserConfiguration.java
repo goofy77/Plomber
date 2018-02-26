@@ -16,4 +16,9 @@ class UserConfiguration {
     UserFactory userFactory(UserRepository userRepository) {
         return new UserFactory(userRepository);
     }
+
+//    @Bean
+//    RegisterUserCommandValidator registerUserCommandValidator(UserRepository userRepository) {
+//        return new RegisterUserCommandValidator(userRepository);
+//    }
 }

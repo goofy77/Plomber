@@ -3,6 +3,8 @@ package com.plomber.user;
 import com.plomber.user.dto.UserDto;
 import com.plomber.user.exceptions.EmailExistsException;
 
+import static java.lang.String.*;
+
 public class UserFacade {
 
     private final UserRepository userRepository;
@@ -15,7 +17,7 @@ public class UserFacade {
 
     public UserDto save(UserDto userDto) {
         if(emailExists(userDto.getEmail())) {
-            throw new EmailExistsException(String.format("Email %s already taken", userDto.getEmail()));
+            throw new EmailExistsException(format("Email %s already taken", userDto.getEmail()));
         }
         User user = userFactory.create(userDto);
         return userRepository.save(user).dto();
